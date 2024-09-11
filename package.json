@@ -1,24 +1,24 @@
 {
 	"name": "@acdh-oeaw/commitlint-action",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"private": true,
 	"license": "MIT",
-	"type": "commonjs",
+	"type": "module",
 	"main": "./dist/index.js",
 	"exports": {
 		".": "./dist/index.js"
 	},
 	"engines": {
 		"node": "20.x",
-		"pnpm": "8.x"
+		"pnpm": "9.x"
 	},
-	"packageManager": "pnpm@8.11.0",
+	"packageManager": "pnpm@9.10.0",
 	"scripts": {
 		"build": "run-s clean package",
 		"clean": "rm -rf ./dist",
-		"format:check": "prettier . \"!./dist/**\" --cache --check --ignore-path ./.gitignore",
+		"format:check": "prettier . \"!./dist/**\" --cache --cache-location ./.prettiercache --check --ignore-path ./.gitignore",
 		"format:fix": "pnpm run format:check --write",
-		"lint:check": "eslint . --cache --ignore-path ./.gitignore",
+		"lint:check": "eslint . --cache",
 		"lint:fix": "pnpm run lint:check --fix",
 		"package": "ncc build ./src/index.ts --license licenses.txt --minify --out dist",
 		"prepare": "run-s setup",
@@ -30,42 +30,38 @@
 	"dependencies": {
 		"@actions/core": "^1.10.1",
 		"@actions/github": "^6.0.0",
-		"@commitlint/lint": "^18.6.1",
-		"@commitlint/load": "^18.6.1"
+		"@commitlint/lint": "^19.5.0",
+		"@commitlint/load": "^19.5.0"
 	},
 	"devDependencies": {
 		"@acdh-oeaw/commitlint-config": "^1.0.0",
-		"@acdh-oeaw/eslint-config": "^1.0.6",
+		"@acdh-oeaw/eslint-config": "^2.0.1",
+		"@acdh-oeaw/eslint-config-node": "^2.0.1",
 		"@acdh-oeaw/prettier-config": "^2.0.0",
-		"@acdh-oeaw/tsconfig-lib": "^1.0.1",
-		"@commitlint/cli": "^18.6.1",
-		"@octokit/webhooks-types": "^7.4.0",
-		"@types/node": "^20.11.26",
+		"@acdh-oeaw/tsconfig-lib": "^1.1.0",
+		"@commitlint/cli": "^19.5.0",
+		"@octokit/webhooks-types": "^7.5.1",
+		"@types/node": "^20.16.5",
 		"@vercel/ncc": "^0.38.1",
-		"eslint": "^8.57.0",
+		"eslint": "^9.10.0",
+		"eslint-config-flat-gitignore": "^0.3.0",
+		"globals": "^15.9.0",
 		"is-ci": "^3.0.1",
-		"lint-staged": "^15.2.2",
-		"npm-run-all2": "^6.1.2",
-		"prettier": "^3.2.5",
-		"simple-git-hooks": "^2.10.0",
-		"typescript": "^5.4.2"
+		"lint-staged": "^15.2.10",
+		"npm-run-all2": "^6.2.2",
+		"prettier": "^3.3.3",
+		"simple-git-hooks": "^2.11.1",
+		"typescript": "^5.6.2"
 	},
 	"commitlint": {
 		"extends": "@acdh-oeaw/commitlint-config"
 	},
-	"eslintConfig": {
-		"extends": [
-			"@acdh-oeaw/eslint-config",
-			"@acdh-oeaw/eslint-config/strict"
-		],
-		"ignorePatterns": "dist"
-	},
 	"lint-staged": {
 		"*.ts": [
 			"eslint --cache --fix",
-			"prettier --cache --write"
+			"prettier --cache --cache-location ./.prettiercache --write"
 		],
-		"*.!(ts),!./dist/**": "prettier --cache --ignore-unknown --write"
+		"*.!(ts),!./dist/**": "prettier --cache --cache-location ./.prettiercache --ignore-unknown --write"
 	},
 	"prettier": "@acdh-oeaw/prettier-config",
 	"simple-git-hooks": {

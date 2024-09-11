@@ -11,14 +11,13 @@ run()
 		// eslint-disable-next-line no-console
 		console.info("✅ ", "All good.");
 	})
-	.catch((error: Error) => {
-		setFailed(error.message);
+	.catch((error: unknown) => {
+		setFailed(String(error));
 	});
 
 async function run() {
 	const commits = await getCommits();
 
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const cwd = process.env["GITHUB_WORKSPACE"]!;
 	const config = await load({}, { cwd });
 
@@ -26,7 +25,7 @@ async function run() {
 		throw new Error("No commitlint config found.");
 	}
 
-	debug(`Linting ${commits.length} commits.`);
+	debug(`Linting ${String(commits.length)} commits.`);
 
 	const report = {
 		isValid: true,

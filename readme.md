@@ -21,5 +21,5 @@ jobs:
 			- uses: actions/setup-node@v4
 			- run: npm ci
 
-			- uses: acdh-oeaw/commitlint-action@v1
+			- uses: acdh-oeaw/commitlint-action@v2
 ```

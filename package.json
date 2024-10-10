@@ -4,9 +4,9 @@
 	"private": true,
 	"license": "MIT",
 	"type": "module",
-	"main": "./dist/index.js",
+	"main": "./dist/index.mjs",
 	"exports": {
-		".": "./dist/index.js"
+		".": "./dist/index.mjs"
 	},
 	"engines": {
 		"node": "22.x",

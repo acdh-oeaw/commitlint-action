@@ -9,10 +9,10 @@
 		".": "./dist/index.js"
 	},
 	"engines": {
-		"node": "20.x",
+		"node": "22.x",
 		"pnpm": "9.x"
 	},
-	"packageManager": "pnpm@9.10.0",
+	"packageManager": "pnpm@9.12.1",
 	"scripts": {
 		"build": "run-s clean package",
 		"clean": "rm -rf ./dist",
@@ -28,30 +28,30 @@
 		"validate": "run-s format:check lint:check types:check test"
 	},
 	"dependencies": {
-		"@actions/core": "^1.10.1",
+		"@actions/core": "^1.11.1",
 		"@actions/github": "^6.0.0",
 		"@commitlint/lint": "^19.5.0",
 		"@commitlint/load": "^19.5.0"
 	},
 	"devDependencies": {
 		"@acdh-oeaw/commitlint-config": "^1.0.0",
-		"@acdh-oeaw/eslint-config": "^2.0.1",
-		"@acdh-oeaw/eslint-config-node": "^2.0.1",
+		"@acdh-oeaw/eslint-config": "^2.0.2",
+		"@acdh-oeaw/eslint-config-node": "^2.0.2",
 		"@acdh-oeaw/prettier-config": "^2.0.0",
-		"@acdh-oeaw/tsconfig-lib": "^1.1.0",
+		"@acdh-oeaw/tsconfig-lib": "^1.1.1",
 		"@commitlint/cli": "^19.5.0",
-		"@octokit/webhooks-types": "^7.5.1",
-		"@types/node": "^20.16.5",
-		"@vercel/ncc": "^0.38.1",
-		"eslint": "^9.10.0",
+		"@octokit/webhooks-types": "^7.6.1",
+		"@types/node": "^22.7.5",
+		"@vercel/ncc": "^0.38.2",
+		"eslint": "^9.12.0",
 		"eslint-config-flat-gitignore": "^0.3.0",
-		"globals": "^15.9.0",
+		"globals": "^15.11.0",
 		"is-ci": "^3.0.1",
 		"lint-staged": "^15.2.10",
-		"npm-run-all2": "^6.2.2",
+		"npm-run-all2": "^6.2.3",
 		"prettier": "^3.3.3",
 		"simple-git-hooks": "^2.11.1",
-		"typescript": "^5.6.2"
+		"typescript": "^5.6.3"
 	},
 	"commitlint": {
 		"extends": "@acdh-oeaw/commitlint-config"

@@ -18,7 +18,7 @@ run()
 async function run() {
 	const commits = await getCommits();
 
-	const cwd = process.env["GITHUB_WORKSPACE"]!;
+	const cwd = process.env.GITHUB_WORKSPACE!;
 	const config = await load({}, { cwd });
 
 	if (Object.keys(config.rules).length === 0) {

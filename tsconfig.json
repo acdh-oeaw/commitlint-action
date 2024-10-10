@@ -4,7 +4,8 @@
 	"compilerOptions": {
 		"allowImportingTsExtensions": false,
 		"module": "nodenext",
-		"moduleResolution": "nodenext"
+		"moduleResolution": "nodenext",
+		"noPropertyAccessFromIndexSignature": false
 	},
 	"exclude": ["dist", "node_modules"]
 }
